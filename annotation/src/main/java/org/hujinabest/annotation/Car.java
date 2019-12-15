@@ -1,8 +1,11 @@
 package org.hujinabest.annotation;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author hujian
  */
+@Component
 public class Car {
     @AutoInit(value = "BMW")
     private String name;
