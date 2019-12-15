@@ -21,7 +21,6 @@ public class SpringAnnotationScan implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         Field[] fields = bean.getClass().getDeclaredFields();
-        Method[] methods = bean.getClass().getMethods();
 
         for (Field field : fields) {
             AutoInit autoInit = field.getAnnotation(AutoInit.class);
