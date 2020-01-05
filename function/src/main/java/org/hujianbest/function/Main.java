@@ -25,9 +25,9 @@ public class Main {
         MyObject object = getObject(MyObject::new);
         object.say();
 
-        List<Integer> nums = Arrays.asList(1, 2, 3, 4);
+        List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5);
         Predicate<Integer> predicate = i -> i < 4;
-        List<Integer> num = nums.stream().filter(predicate.and(i -> i > 1)).collect(Collectors.toList());
+        List<Integer> num = nums.stream().filter(predicate.and(i -> i > 1).or(i -> i == 5)).collect(Collectors.toList());
         num.forEach((System.out::println));
     }
 }
