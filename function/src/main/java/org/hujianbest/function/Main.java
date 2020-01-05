@@ -1,6 +1,10 @@
 package org.hujianbest.function;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * @author hujian
@@ -20,5 +24,10 @@ public class Main {
 
         MyObject object = getObject(MyObject::new);
         object.say();
+
+        List<Integer> nums = Arrays.asList(1, 2, 3, 4);
+        Predicate<Integer> predicate = i -> i < 4;
+        List<Integer> num = nums.stream().filter(predicate.and(i -> i > 1)).collect(Collectors.toList());
+        num.forEach((System.out::println));
     }
 }
