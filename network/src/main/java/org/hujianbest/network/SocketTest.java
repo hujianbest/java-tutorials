@@ -1,8 +1,10 @@
 package org.hujianbest.network;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -19,6 +21,9 @@ public class SocketTest {
         }
 
         InetSocketAddress address = new InetSocketAddress("time-a.nist.gov", 13);
+        InetAddress addressIp = InetAddress.getByName("time-a.nist.gov");
+        byte[] addressBytes = addressIp.getAddress();
+        System.out.println(Arrays.toString(addressBytes));
         try (Socket socket = new Socket()) {
             socket.connect(address, 10000);
             socket.setSoTimeout(10000);
