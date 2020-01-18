@@ -1,9 +1,9 @@
 package org.hujianbest.jdbc;
 
+import lombok.Cleanup;
 import lombok.SneakyThrows;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 /**
  * @author hujian
@@ -19,8 +19,34 @@ public class Jdbc {
         return conn;
     }
 
+    @SneakyThrows
+    private ResultSet query(Connection conn, String sql) {
+        Statement statement = conn.createStatement();
+        return statement.executeQuery(sql);
+    }
+
+    @SneakyThrows
+    private ResultSet query(PreparedStatement statement) {
+        return statement.executeQuery();
+    }
+
+    @SneakyThrows
     public static void main(String[] args) {
         Jdbc jdbc = new Jdbc();
         Connection conn = jdbc.getConnection();
+        ResultSet resultSet = jdbc.query(conn, "select * from tb_user");
+        while (resultSet.next()) {
+            System.out.println(resultSet.getString("username"));
+        }
+
+        String sql = "select * from tb_user where user_id = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, 1);
+        ResultSet set = statement.executeQuery();
+        while (set.next()) {
+            System.out.println(set.getString("username"));
+        }
     }
+
+
 }
