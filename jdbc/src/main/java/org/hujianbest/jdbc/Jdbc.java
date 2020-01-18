@@ -34,10 +34,13 @@ public class Jdbc {
     public static void main(String[] args) {
         Jdbc jdbc = new Jdbc();
         Connection conn = jdbc.getConnection();
+        conn.setAutoCommit(false);
+
         ResultSet resultSet = jdbc.query(conn, "select * from tb_user");
         while (resultSet.next()) {
             System.out.println(resultSet.getString("username"));
         }
+        conn.commit();
 
         String sql = "select * from tb_user where user_id = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
@@ -46,6 +49,10 @@ public class Jdbc {
         while (set.next()) {
             System.out.println(set.getString("username"));
         }
+        conn.rollback();
+
+        DatabaseMetaData metaData = conn.getMetaData();
+
     }
 
 
