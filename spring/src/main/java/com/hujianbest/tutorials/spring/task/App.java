@@ -1,4 +1,4 @@
-package com.hujianbest.tutorials.spring;
+package com.hujianbest.tutorials.spring.task;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;

@@ -1,4 +1,4 @@
-package com.hujianbest.tutorials.spring;
+package com.hujianbest.tutorials.spring.task;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
