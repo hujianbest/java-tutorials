@@ -18,6 +18,7 @@
         <module>security</module>
         <module>stream</module>
         <module>spring</module>
+        <module>netty</module>
     </modules>
 
     <dependencyManagement>
