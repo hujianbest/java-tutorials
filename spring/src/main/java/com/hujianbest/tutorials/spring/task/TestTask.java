@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  * @author hujian
  */
 @Component
-public class Task {
+public class TestTask {
 
     @Scheduled(cron = "0/10 * *  * * ? ")
     public void sayHello() {
