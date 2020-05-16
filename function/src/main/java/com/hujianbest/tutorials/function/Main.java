@@ -3,6 +3,7 @@ package com.hujianbest.tutorials.function;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -31,10 +32,13 @@ public class Main {
         num.forEach((System.out::println));
 
         Person person = new Person();
-        MyFunction<Integer, String> name = person::name;
+        Function<Integer, String> name = person::name;
         System.out.println(name.apply(1));
+
         BiFunction<Integer, String, String> nickname = person::nickname;
-        System.out.println(nickname.apply(1, "jack")
-        );
+        System.out.println(nickname.apply(1, "jack"));
+
+        Function<Integer, String> age = Person::age;
+        System.out.println(age.apply(2));
     }
 }
