@@ -40,5 +40,11 @@ public class Main {
 
         Function<Integer, String> age = Person::age;
         System.out.println(age.apply(2));
+
+        Supplier<Person> constructor1 = Person::new;
+        constructor1.get();
+
+        MyConstructor<Person> constructor2 = Person::new;
+        constructor2.get(6);
     }
 }
